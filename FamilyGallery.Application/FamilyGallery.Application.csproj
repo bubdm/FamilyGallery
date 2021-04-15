@@ -8,10 +8,23 @@
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FamilyGallery.Domain\FamilyGallery.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Albums\Commands\" />
+    <Folder Include="Features\Albums\Queries\" />
+    <Folder Include="Features\Families\Commands\" />
+    <Folder Include="Features\FamilyMembers\Commands\" />
+    <Folder Include="Features\FamilyMembers\Queries\" />
+    <Folder Include="Features\Media\Commands\" />
+    <Folder Include="Features\Media\Queries\" />
+    <Folder Include="Features\Users\Commands\" />
+    <Folder Include="Features\Users\Queries\" />
   </ItemGroup>
 
 </Project>
