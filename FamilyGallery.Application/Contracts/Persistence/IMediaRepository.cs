@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Application.Contracts.Persistence
 {
-    public interface IAsyncMediaRepository : IAsyncRepository<Media, Guid>
+    public interface IMediaRepository : IAsyncRepository<Media, Guid>
     {
     }
 }
