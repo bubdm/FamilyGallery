@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FamilyGallery.Application\FamilyGallery.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EntityFramework\" />
+    <Folder Include="DynamoDb\" />
+    <Folder Include="CosmosDb\" />
+  </ItemGroup>
+
+</Project>
