@@ -3,7 +3,7 @@ using System;
 
 namespace FamilyGallery.Application.Contracts.Persistence
 {
-    public interface IAlbumMemberRepository : IAsyncRepository<AlbumMember, Guid>
+    public interface IAlbumMemberRepository : IAsyncRepository<AlbumMember>
     {
     }
 }
