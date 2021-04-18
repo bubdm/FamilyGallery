@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FamilyGallery.Application.Contracts.Persistence;
+using FamilyGallery.Application.Exceptions;
 using FamilyGallery.Domain.Entities;
 using MediatR;
 using System;
@@ -23,6 +24,12 @@ namespace FamilyGallery.Application.Features.Families.Commands.UpdateFamily
         }
         public async Task<Unit> Handle(UpdateFamilyCommand request, CancellationToken cancellationToken)
         {
+            var validator = new UpdateFamilyCommandValidator(familyRepository);
+            var validationResult = await validator.ValidateAsync(request);
+            if (!validationResult.IsValid)
+            {
+                throw new ValidationException(validationResult);
+            }
             var family = await familyRepository.GetByIdAsync(request.Id);
             mapper.Map(request, family, typeof(UpdateFamilyCommand), typeof(Family));
             await familyRepository.UpdateAsync(family);
