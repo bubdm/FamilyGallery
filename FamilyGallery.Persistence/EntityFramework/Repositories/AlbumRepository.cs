@@ -28,7 +28,7 @@ namespace FamilyGallery.Persistence.EntityFramework.Repositories
                     (album, member) => new
                     {
                         Album = album,
-                        FamilyId = member.FamilyId
+                        member.FamilyId
                     }).Where(x => x.FamilyId == familyId)
                 .Select(x => x.Album)
                 .ToListAsync();
