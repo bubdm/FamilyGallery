@@ -26,7 +26,7 @@ namespace FamilyGallery.Application.Features.Families.GetFamily
         {
             var family = await familyRepository.GetByIdAsync(request.Id);
             var familyVm = mapper.Map<FamilyVm>(family);
-            var members = familyMemberRepository.GetByFamily(request.Id);
+            var members = await familyMemberRepository.GetByFamily(request.Id);
             familyVm.Members = mapper.Map<List<UserVm>>(members);
             return familyVm;
         }
