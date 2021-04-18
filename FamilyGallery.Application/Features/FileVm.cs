@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Application.Features
 {
-    public class MediaVm
+    public class FileVm
     {
         public Guid Id { get; set; }
 

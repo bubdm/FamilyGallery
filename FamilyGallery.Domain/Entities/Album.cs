@@ -13,7 +13,7 @@ namespace FamilyGallery.Domain.Entities
 
         public bool IsPrivate { get; set; }
 
-        public IReadOnlyCollection<Media> Items { get; set; }
+        public IReadOnlyCollection<File> Files { get; set; }
 
         public IReadOnlyCollection<AlbumMember> Members { get; set; }
     }

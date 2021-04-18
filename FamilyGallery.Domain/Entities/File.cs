@@ -3,7 +3,7 @@ using FamilyGallery.Domain.Common;
 
 namespace FamilyGallery.Domain.Entities
 {
-    public class Media : AuditedEntity<Guid>
+    public class File : AuditedEntity<Guid>
     {
         public string Path { get; set; }
 
