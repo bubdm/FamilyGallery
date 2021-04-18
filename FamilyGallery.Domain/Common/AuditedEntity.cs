@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Domain.Common
 {
-    public class AuditedEntity<T> : Entity<T> where T : struct
+    public class AuditedEntity : Entity<Guid>
     {
         public string CreatedBy { get; set; }
 
