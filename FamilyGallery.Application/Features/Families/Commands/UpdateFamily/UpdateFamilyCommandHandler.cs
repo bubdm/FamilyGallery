@@ -15,24 +15,24 @@ namespace FamilyGallery.Application.Features.Families.Commands.UpdateFamily
     public class UpdateFamilyCommandHandler : IRequestHandler<UpdateFamilyCommand>
     {
         private readonly IMapper mapper;
-        private readonly IFamilyRepository familyRepository;
+        private readonly IFamilyMemberRepository familyMemberRepository;
 
-        public UpdateFamilyCommandHandler(IMapper mapper, IFamilyRepository familyRepository)
+        public UpdateFamilyCommandHandler(IMapper mapper, IFamilyMemberRepository familyRepository)
         {
             this.mapper = mapper;
-            this.familyRepository = familyRepository;
+            this.familyMemberRepository = familyRepository;
         }
         public async Task<Unit> Handle(UpdateFamilyCommand request, CancellationToken cancellationToken)
         {
-            var validator = new UpdateFamilyCommandValidator(familyRepository);
+            var validator = new UpdateFamilyCommandValidator(familyMemberRepository);
             var validationResult = await validator.ValidateAsync(request);
             if (!validationResult.IsValid)
             {
                 throw new ValidationException(validationResult);
             }
-            var family = await familyRepository.GetByIdAsync(request.Id);
+            var family = await familyMemberRepository.GetByIdAsync(request.Id);
             mapper.Map(request, family, typeof(UpdateFamilyCommand), typeof(Family));
-            await familyRepository.UpdateAsync(family);
+            await familyMemberRepository.UpdateAsync(family);
             return Unit.Value;
         }
     }
