@@ -10,7 +10,7 @@ namespace FamilyGallery.Application.Features.Families.Commands.UpdateFamily
     public class UpdateFamilyCommand : IRequest
     {
         public Guid Id { get; set; }
-
+        public Guid UpdaterId { get; set; }
         public string Name { get; set; }
     }
 }
