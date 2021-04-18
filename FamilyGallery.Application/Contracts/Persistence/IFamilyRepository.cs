@@ -9,5 +9,6 @@ namespace FamilyGallery.Application.Contracts.Persistence
 {
     public interface IFamilyRepository : IAsyncRepository<Family, Guid>
     {
+        Task<bool> IsFamilyMember(Guid familyId, Guid userId);
     }
 }
