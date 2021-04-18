@@ -10,5 +10,7 @@ namespace FamilyGallery.Application.Contracts.Persistence
     public interface IFamilyMemberRepository : IAsyncRepository<FamilyMember>
     {
         IReadOnlyList<FamilyMember> GetByFamily(Guid id);
+        Task<bool> IsFamilyMember(Guid familyId, Guid userId);
+
     }
 }
