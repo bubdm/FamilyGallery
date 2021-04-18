@@ -10,8 +10,6 @@ namespace FamilyGallery.Persistence.EntityFramework.Configurations
         {
             builder.Property(e => e.AlbumId).IsRequired();
             builder.Property(e => e.UserId).IsRequired();
-            builder.Property(e => e.CreatedBy).IsRequired().HasMaxLength(50);
-            builder.Property(e => e.LastModifiedBy).HasMaxLength(50);
         }
     }
 }

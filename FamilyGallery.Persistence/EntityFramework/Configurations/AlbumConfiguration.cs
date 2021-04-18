@@ -15,9 +15,7 @@ namespace FamilyGallery.Persistence.EntityFramework.Configurations
         public void Configure(EntityTypeBuilder<Album> builder)
         {
             builder.Property(e => e.Name).IsRequired().HasMaxLength(50);
-            builder.Property(e => e.Description).IsRequired().HasMaxLength(500);
-            builder.Property(e => e.CreatedBy).IsRequired().HasMaxLength(50);
-            builder.Property(e => e.LastModifiedBy).HasMaxLength(50);
+            builder.Property(e => e.Description).IsRequired().HasMaxLength(500);            
         }
     }
 }

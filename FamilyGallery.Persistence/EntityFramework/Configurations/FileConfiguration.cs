@@ -12,8 +12,6 @@ namespace FamilyGallery.Persistence.EntityFramework.Configurations
             builder.Property(e => e.Extension).IsRequired().HasMaxLength(50);
             builder.Property(e => e.FileSize).IsRequired();
             builder.Property(e => e.Path).IsRequired().HasMaxLength(500);
-            builder.Property(e => e.CreatedBy).IsRequired().HasMaxLength(50);
-            builder.Property(e => e.LastModifiedBy).HasMaxLength(50);
         }
     }
 }
