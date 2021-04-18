@@ -10,6 +10,10 @@ namespace FamilyGallery.Domain.Entities
 {
     public class AlbumMember : AuditedEntity<Guid>, IEquatable<AlbumMember>
     {
+        public int AlbumId { get; set; }
+
+        public Album Album { get; set; }
+
         public int UserId { get; set; }
 
         public User User { get; set; }
