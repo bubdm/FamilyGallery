@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Application.Contracts.Persistence
 {
-    public interface IUserRepository : IAsyncRepository<User, Guid>
+    public interface IUserRepository : IAsyncRepository<User>
     {
     }
 }

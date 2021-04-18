@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Application.Contracts.Persistence
 {
-    public interface IFamilyMemberRepository : IAsyncRepository<FamilyMember, Guid>
+    public interface IFamilyMemberRepository : IAsyncRepository<FamilyMember>
     {
         IReadOnlyList<FamilyMember> GetByFamily(Guid id);
     }

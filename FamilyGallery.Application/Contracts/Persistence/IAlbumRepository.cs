@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Application.Contracts.Persistence
 {
-    public interface IAlbumRepository : IAsyncRepository<Album, Guid>
+    public interface IAlbumRepository : IAsyncRepository<Album>
     {
         Task<ICollection<Album>> GetByFamilyAsync(Guid familyId);
     }

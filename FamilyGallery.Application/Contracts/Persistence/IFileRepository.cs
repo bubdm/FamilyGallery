@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Application.Contracts.Persistence
 {
-    public interface IFileRepository : IAsyncRepository<File, Guid>
+    public interface IFileRepository : IAsyncRepository<File>
     {
     }
 }
