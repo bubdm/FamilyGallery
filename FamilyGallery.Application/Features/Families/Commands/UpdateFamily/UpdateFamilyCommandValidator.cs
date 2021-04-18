@@ -11,11 +11,11 @@ namespace FamilyGallery.Application.Features.Families.Commands.UpdateFamily
 {
     public class UpdateFamilyCommandValidator : AbstractValidator<UpdateFamilyCommand>
     {
-        private readonly IFamilyRepository familyRepository;
+        private readonly IFamilyMemberRepository familyMemberRepository;
 
-        public UpdateFamilyCommandValidator(IFamilyRepository familyRepository)
+        public UpdateFamilyCommandValidator(IFamilyMemberRepository repository)
         {
-            this.familyRepository = familyRepository;
+            this.familyMemberRepository = repository;
 
             RuleFor(f => f.Name)
                 .NotEmpty().WithMessage("{PropertyName} is required.")
@@ -27,7 +27,7 @@ namespace FamilyGallery.Application.Features.Families.Commands.UpdateFamily
 
         private async Task<bool> EditedByFamilyMember(UpdateFamilyCommand command, CancellationToken token)
         {
-            return ! await familyRepository.IsFamilyMember(command.Id, command.UpdaterId);
+            return ! await familyMemberRepository.IsFamilyMember(command.Id, command.UpdaterId);
         }
     }
 }
