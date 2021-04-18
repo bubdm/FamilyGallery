@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Application.Contracts.Persistence
 {
-    public interface IAsyncRepository<T, K> where T : Entity<K> where K : struct
+    public interface IAsyncRepository<T> where T : AuditedEntity
     {
-        Task<T> GetByIdAsync(K id);
+        Task<T> GetByIdAsync(Guid id);
 
         Task<IReadOnlyList<T>> ListAllAsync();
 
