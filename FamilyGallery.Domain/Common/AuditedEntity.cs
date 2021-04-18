@@ -8,11 +8,11 @@ namespace FamilyGallery.Domain.Common
 {
     public class AuditedEntity : Entity<Guid>
     {
-        public string CreatedBy { get; set; }
+        public Guid CreatorId { get; set; }
 
         public DateTime DateCreated { get; set; }
 
-        public string LastModifiedBy { get; set; }
+        public Guid LastModifierId { get; set; }
 
         public DateTime LastModifiedDate { get; set; }
     }
