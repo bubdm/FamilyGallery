@@ -1,9 +1,11 @@
-﻿using FamilyGallery.Domain.Entities;
+﻿using FamilyGallery.Domain.Common;
+using FamilyGallery.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FamilyGallery.Persistence.EntityFramework
@@ -27,6 +29,22 @@ namespace FamilyGallery.Persistence.EntityFramework
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(FamilyGalleryDbContext).Assembly);
             base.OnModelCreating(modelBuilder);
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        {
+            foreach (var entry in ChangeTracker.Entries<AuditedEntity>())
+            {
+                switch (entry.State) { 
+                    case EntityState.Added:
+                        entry.Entity.DateCreated = DateTime.Now;
+                        break;
+                    case EntityState.Modified:
+                        entry.Entity.LastModifiedDate = DateTime.Now;
+                        break;
+                }
+            }
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }
