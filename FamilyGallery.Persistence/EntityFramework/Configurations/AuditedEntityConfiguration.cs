@@ -13,8 +13,8 @@ namespace FamilyGallery.Persistence.EntityFramework.Configurations
     {
         public void Configure(EntityTypeBuilder<AuditedEntity> builder)
         {
-            builder.Property(e => e.CreatedBy).IsRequired().HasMaxLength(50);
-            builder.Property(e => e.LastModifiedBy).HasMaxLength(50);
+            builder.Property(e => e.CreatorId).IsRequired();
+            builder.Property(e => e.LastModifierId);
         }
     }
 }
