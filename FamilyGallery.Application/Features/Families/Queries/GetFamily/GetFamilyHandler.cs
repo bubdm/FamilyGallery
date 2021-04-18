@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using FamilyGallery.Application.Contracts.Persistence;
-using FamilyGallery.Application.Features.Users;
 using MediatR;
 using System;
 using System.Collections.Generic;
