@@ -5,7 +5,7 @@ using FamilyGallery.Domain.Common;
 
 namespace FamilyGallery.Domain.Entities
 {
-    public class User : AuditedEntity<Guid>, IEquatable<User>
+    public class User : AuditedEntity, IEquatable<User>
     {
         public string FirstName { get; set; }
 

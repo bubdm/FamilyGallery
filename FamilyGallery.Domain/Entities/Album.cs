@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace FamilyGallery.Domain.Entities
 {
-    public class Album : AuditedEntity<Guid>, IEquatable<Album>
+    public class Album : AuditedEntity, IEquatable<Album>
     {
         public string Name { get; set; }
 

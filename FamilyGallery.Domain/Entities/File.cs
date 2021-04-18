@@ -4,7 +4,7 @@ using FamilyGallery.Domain.Common;
 
 namespace FamilyGallery.Domain.Entities
 {
-    public class File : AuditedEntity<Guid>, IEquatable<File>
+    public class File : AuditedEntity, IEquatable<File>
     {
         public string Path { get; set; }
 

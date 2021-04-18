@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Domain.Entities
 {
-    public class AlbumMember : AuditedEntity<Guid>, IEquatable<AlbumMember>
+    public class AlbumMember : AuditedEntity, IEquatable<AlbumMember>
     {
         public int AlbumId { get; set; }
 

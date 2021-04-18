@@ -8,7 +8,7 @@ using FamilyGallery.Domain.Common;
 
 namespace FamilyGallery.Domain.Entities
 {
-    public class Family : AuditedEntity<Guid>, IEquatable<Family>
+    public class Family : AuditedEntity, IEquatable<Family>
     {
         public Family()
         {
