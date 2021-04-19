@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -21,8 +21,8 @@
     <Folder Include="Features\Albums\Commands\" />
     <Folder Include="Features\FamilyMembers\Commands\" />
     <Folder Include="Features\FamilyMembers\Queries\GetFamilyMembers\" />
-    <Folder Include="Features\Media\Commands\" />
-    <Folder Include="Features\Media\Queries\" />
+    <Folder Include="Features\Files\Commands\" />
+    <Folder Include="Features\Files\Queries\" />
     <Folder Include="Features\Users\Commands\" />
     <Folder Include="Features\Users\Queries\" />
   </ItemGroup>
