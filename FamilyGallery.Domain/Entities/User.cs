@@ -11,6 +11,12 @@ namespace FamilyGallery.Domain.Entities
 
         public string LastName { get; set; }
 
+        public string Email { get; set; }
+
+        public string PhoneNumber { get; set; }
+
+        public bool Activated { get; set; }
+
         public bool Equals([AllowNull] User other)
         {
             return other != null && other.Id == Id;
