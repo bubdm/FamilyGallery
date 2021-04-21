@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Albums\Commands\" />
-    <Folder Include="Features\FamilyMembers\Commands\" />
     <Folder Include="Features\FamilyMembers\Queries\GetFamilyMembers\" />
     <Folder Include="Features\Files\Commands\" />
     <Folder Include="Features\Files\Queries\" />
