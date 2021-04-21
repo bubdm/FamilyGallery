@@ -9,5 +9,6 @@ namespace FamilyGallery.Application.Contracts.Persistence
 {
     public interface IUserRepository : IAsyncRepository<User>
     {
+        Task<User> FindByEmail(string email);
     }
 }
