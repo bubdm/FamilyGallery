@@ -15,6 +15,8 @@ namespace FamilyGallery.Persistence.EntityFramework.Configurations
         {
             builder.Property(e => e.FirstName).IsRequired().HasMaxLength(50);
             builder.Property(e => e.LastName).IsRequired().HasMaxLength(50);
+            builder.Property(e => e.Email).IsRequired().HasMaxLength(50);
+            builder.Property(e => e.PhoneNumber).IsRequired().HasMaxLength(15);
         }
     }
 }
