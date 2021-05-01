@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Persistence.EntityFramework.Configurations
 {
-    public class FamilyConfiguration : IEntityTypeConfiguration<Family>
+    public class FamilyConfiguration : AuditedEntityConfiguration<Family>, IEntityTypeConfiguration<Family>
     {
         public void Configure(EntityTypeBuilder<Family> builder)
         {
+            builder.HasKey(e => e.Id);
             builder.Property(f => f.Name).IsRequired().HasMaxLength(50);
+            base.Configure(builder);
         }
     }
 }

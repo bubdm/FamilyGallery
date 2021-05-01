@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Persistence.EntityFramework.Configurations
 {
-    public class AuditedEntityConfiguration : IEntityTypeConfiguration<AuditedEntity>
+    public class AuditedEntityConfiguration<T> : IEntityTypeConfiguration<T> where T : AuditedEntity
     {
-        public void Configure(EntityTypeBuilder<AuditedEntity> builder)
+        public void Configure(EntityTypeBuilder<T> builder)
         {
             builder.Property(e => e.CreatorId).IsRequired();
             builder.Property(e => e.LastModifierId);
