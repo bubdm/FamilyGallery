@@ -23,6 +23,8 @@ namespace FamilyGallery.Persistence.EntityFramework
 
         public DbSet<File> Files { get; set; }
 
+        public DbSet<User> Users{ get; set; }
+
         public DbSet<AlbumMember> AlbumMembers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
