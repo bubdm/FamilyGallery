@@ -13,7 +13,7 @@ namespace FamilyGallery.Domain.Entities
 
         public string Description { get; set; }
 
-        public bool IsPrivate { get; set; }
+        public ShareWith ShareWith { get; set; }
 
         public IReadOnlyCollection<File> Files { get; set; }
 
