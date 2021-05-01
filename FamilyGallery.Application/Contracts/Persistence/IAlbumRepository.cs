@@ -10,5 +10,9 @@ namespace FamilyGallery.Application.Contracts.Persistence
     public interface IAlbumRepository : IAsyncRepository<Album>
     {
         Task<ICollection<Album>> GetByFamilyAsync(Guid familyId);
+        Task<ICollection<Album>> GetByOwnerAsync(Guid userId);
+
+        Task<bool> IsAlbumOwnerAsync(Guid albumId, Guid userId);
+        Task<Album> GetWithFilesAsync(Guid albumId, int numberOfFiles, int page);
     }
 }
