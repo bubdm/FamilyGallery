@@ -6,6 +6,8 @@ namespace FamilyGallery.Domain.Entities
 {
     public class File : AuditedEntity, IEquatable<File>
     {
+        public Guid AlbumId { get; set; }
+
         public string Path { get; set; }
 
         public string ContentType { get; set; }
