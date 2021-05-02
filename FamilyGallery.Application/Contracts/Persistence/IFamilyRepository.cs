@@ -9,5 +9,7 @@ namespace FamilyGallery.Application.Contracts.Persistence
 {
     public interface IFamilyRepository : IAsyncRepository<Family>
     {
+        Task<List<Family>> GetByUserIdAsync(Guid userId); 
+        Task<List<Family>> GetWithMembersByUserIdAsync(Guid userId);
     }
 }
