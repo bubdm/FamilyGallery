@@ -39,7 +39,10 @@ namespace FamilyGallery.Application.Features.FamilyMembers.Commands.CreateFamily
             }
             familyMember.UserId = user.Id;
             var result = await familyMemberRepository.AddAsync(familyMember);
-            await inviteService.InviteFamilyMember(request);
+            if (!await familyMemberRepository.IsFamilyMember(request.FamilyId, user.Id))
+            {
+                await inviteService.InviteFamilyMember(request);
+            }
             return result.Id;
         }
     }
