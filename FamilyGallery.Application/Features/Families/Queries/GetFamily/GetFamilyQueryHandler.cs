@@ -1,22 +1,20 @@
 ﻿using AutoMapper;
 using FamilyGallery.Application.Contracts.Persistence;
+using FamilyGallery.Application.Exceptions;
 using MediatR;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FamilyGallery.Application.Features.Families.GetFamily
+namespace FamilyGallery.Application.Features.Families.Queries.GetFamily
 {
-    public class GetFamilyHandler : IRequestHandler<GetFamilyQuery, FamilyVm>
+    public class GetFamilyQueryHandler : IRequestHandler<GetFamilyQuery, FamilyVm>
     {
         private readonly IMapper mapper;
         private readonly IFamilyRepository familyRepository;
         private readonly IFamilyMemberRepository familyMemberRepository;
 
-        public GetFamilyHandler(IMapper mapper, IFamilyRepository familyRepository, IFamilyMemberRepository familyMemberRepository)
+        public GetFamilyQueryHandler(IMapper mapper, IFamilyRepository familyRepository, IFamilyMemberRepository familyMemberRepository)
         {
             this.mapper = mapper;
             this.familyRepository = familyRepository;
@@ -24,9 +22,13 @@ namespace FamilyGallery.Application.Features.Families.GetFamily
         }
         public async Task<FamilyVm> Handle(GetFamilyQuery request, CancellationToken cancellationToken)
         {
-            var family = await familyRepository.GetByIdAsync(request.Id);
+            if(! await familyMemberRepository.IsFamilyMember(request.FamilyId, request.UserId))
+            {
+                throw new BadRequestException("You are not member of that family" );
+            }
+            var family = await familyRepository.GetByIdAsync(request.FamilyId);
             var familyVm = mapper.Map<FamilyVm>(family);
-            var members = await familyMemberRepository.GetByFamily(request.Id);
+            var members = await familyMemberRepository.GetByFamily(request.FamilyId);
             familyVm.Members = mapper.Map<List<UserVm>>(members);
             return familyVm;
         }
