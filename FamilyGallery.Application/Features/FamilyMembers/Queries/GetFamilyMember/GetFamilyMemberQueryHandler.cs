@@ -13,13 +13,11 @@ namespace FamilyGallery.Application.Features.FamilyMembers.Queries.GetFamilyMemb
     public class GetFamilyMemberQueryHandler : IRequestHandler<GetFamilyMemberQuery, FamilyMemberVm>
     {
         private readonly IFamilyMemberRepository familyMemberRepository;
-        private readonly GetFamilyMemberQuery getFamilyMemberQuery;
         private readonly IMapper mapper;
 
-        public GetFamilyMemberQueryHandler(IFamilyMemberRepository familyMemberRepository, GetFamilyMemberQuery getFamilyMemberQuery, IMapper mapper)
+        public GetFamilyMemberQueryHandler(IFamilyMemberRepository familyMemberRepository, IMapper mapper)
         {
             this.familyMemberRepository = familyMemberRepository;
-            this.getFamilyMemberQuery = getFamilyMemberQuery;
             this.mapper = mapper;
         }
         public async Task<FamilyMemberVm> Handle(GetFamilyMemberQuery request, CancellationToken cancellationToken)
