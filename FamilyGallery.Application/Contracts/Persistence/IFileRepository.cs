@@ -9,5 +9,6 @@ namespace FamilyGallery.Application.Contracts.Persistence
 {
     public interface IFileRepository : IAsyncRepository<File>
     {
+        Task<bool> IsOwner(Guid fileId, Guid userId);
     }
 }
