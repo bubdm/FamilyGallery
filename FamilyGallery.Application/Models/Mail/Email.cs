@@ -14,7 +14,8 @@ namespace FamilyGallery.Application.Models.Mail
             BCC = new List<string>();
         }
 
-        public string To { get; set; }
+        public string Name { get; set; }
+        public string EmailAddress { get; set; }
         
         public List<string> CC { get; set; }
         
