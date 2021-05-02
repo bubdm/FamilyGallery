@@ -1,14 +1,11 @@
 ﻿using MediatR;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FamilyGallery.Application.Features.Albums.Queries.GetAlbums
 {
-    public class GetAlbumsQuery : IRequest<List<AlbumVm>>
+    public class GetAlbumsQuery : IRequest<GetAlbumsQueryResponse>
     {
-        public Guid Id { get; set; }
+        public Guid UserId { get; set; }
     }
 }
