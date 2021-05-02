@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Application.Features.Families.Commands.UpdateFamily
 {
-    public class UpdateFamilyCommandHandler : IRequestHandler<UpdateFamilyCommand>
+    public class UpdateFamilyCommandHandler : IRequestHandler<UpdateFamilyCommand, UpdateFamilyCommandResponse>
     {
         private readonly IMapper mapper;
         private readonly IFamilyMemberRepository familyMemberRepository;
@@ -22,18 +22,18 @@ namespace FamilyGallery.Application.Features.Families.Commands.UpdateFamily
             this.mapper = mapper;
             this.familyMemberRepository = familyRepository;
         }
-        public async Task<Unit> Handle(UpdateFamilyCommand request, CancellationToken cancellationToken)
+        public async Task<UpdateFamilyCommandResponse> Handle(UpdateFamilyCommand request, CancellationToken cancellationToken)
         {
             var validator = new UpdateFamilyCommandValidator(familyMemberRepository);
             var validationResult = await validator.ValidateAsync(request);
             if (!validationResult.IsValid)
             {
-                throw new ValidationException(validationResult);
+                return new UpdateFamilyCommandResponse{ IsSuccessful = false, Message = validationResult.ToString() };
             }
             var family = await familyMemberRepository.GetByIdAsync(request.Id);
             mapper.Map(request, family, typeof(UpdateFamilyCommand), typeof(Family));
             await familyMemberRepository.UpdateAsync(family);
-            return Unit.Value;
+            return new UpdateFamilyCommandResponse { IsSuccessful = true, Data = mapper.Map<FamilyVm>(family) };
         }
     }
 }
