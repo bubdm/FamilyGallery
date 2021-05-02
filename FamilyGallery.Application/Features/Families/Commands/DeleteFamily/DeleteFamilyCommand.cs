@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace FamilyGallery.Application.Features.Families.Commands.DeleteFamily
 {
-    public class DeleteFamilyCommand : IRequest
+    public class DeleteFamilyCommand : IRequest<DeleteFamilyCommandResponse>
     {
-        public Guid Id { get; set; }
+        public Guid FamilyId { get; set; }
+        public Guid DeleterId { get; set; }
     }
 }
