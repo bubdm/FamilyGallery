@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using FamilyGallery.Application.Features.Families;
 
-namespace FamilyGallery.Application.Features.Families.GetFamilies
+namespace FamilyGallery.Application.Features.Families.Queries.GetFamilies
 {
     public class GetFamiliesQueryHandler : IRequestHandler<GetFamiliesQuery, List<FamilyVm>>
     {
@@ -23,7 +23,7 @@ namespace FamilyGallery.Application.Features.Families.GetFamilies
         }
         public async Task<List<FamilyVm>> Handle(GetFamiliesQuery request, CancellationToken cancellationToken)
         {
-            var families = await familyRepository.ListAllAsync();
+            var families = await familyRepository.GetByUserIdAsync(request.UserId);
             return mapper.Map<List<FamilyVm>>(families);
         }
     }
